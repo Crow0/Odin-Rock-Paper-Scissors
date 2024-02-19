@@ -25,3 +25,32 @@ function round(playerSelection, computerSelection) {
         return("Sorry you lost. Try again. ")
     }
 }
+
+
+function game () {
+    let PlayerScore = 0;
+    let ComputerScore = 0;
+
+    for(let i = 0; i<5; i++) {
+        let playerSelection = getPlayerChoice();
+        let computerSelection = getComputerChoice();
+
+        let result = round(playerSelection, computerSelection);
+        alert(result);
+        if (result === "Great job you won! Rock beats scissors." || result === "Great job you won! Paper beats rock." || result === "Great job you won! Scissors beat paper. ") {
+            PlayerScore++
+        } else if (result === "Sorry you lost. Try again. ") {
+            ComputerScore++
+        }
+    }
+
+    if (PlayerScore>ComputerScore ) {
+        alert("Congratulations, you win the game!");
+    } else if(PlayerScore<ComputerScore) {
+        alert("Sorry, you lost the game.");
+    } else {
+        alert("The game is a tie! ");
+    }
+}
+
+game();
