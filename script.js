@@ -11,3 +11,17 @@ function getPlayerChoice() {
     }
     return playerChoice;
 }
+
+function round(playerSelection, computerSelection) {
+    if(playerSelection === "rock" && computerSelection === "scissors") {
+        return("Great job you won! Rock beats scissors.");
+    } else if(playerSelection ==="paper" && computerSelection ==="rock") {
+        return("Great job you won! Paper beats rock.");
+    } else if(playerSelection === "scissors" && computerSelection ==="paper") {
+        return("Great job you won! Scissors beat paper. ");
+    } else if(playerSelection === computerSelection) {
+        return("It's a tie!")
+    } else {
+        return("Sorry you lost. Try again. ")
+    }
+}
