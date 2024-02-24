@@ -3,8 +3,9 @@ function getComputerChoice() {
     return choices[Math.floor(Math.random()*choices.length)];
 }
 
-function getPlayerChoice() {
-    let playerChoice = prompt("Choose between rock,paper or scissors: ").toLowerCase();
+function getPlayerChoice(choice) {
+    let playerChoice = choice;
+    //prompt("Choose between rock,paper or scissors: ").toLowerCase();
     if (playerChoice !=="rock" && playerChoice !=="paper" && playerChoice !=="scissors") {
         alert("That choice is not valid. Please choose rock,paper or scissors: ")
         return null;
@@ -26,7 +27,7 @@ function round(playerSelection, computerSelection) {
     }
 }
 
-
+/*
 function game () {
     let PlayerScore = 0;
     let ComputerScore = 0;
@@ -54,3 +55,43 @@ function game () {
 }
 
 game();
+*/
+let selection;
+
+const rockSelector = document.querySelector(".rock-button");
+const paperSelector = document.querySelector(".paper-button");
+const scissorsSelector = document.querySelector(".scissors-button");
+
+rockSelector.addEventListener("click",()=>{
+    let computerPick = getComputerChoice();
+    console.log(round("rock",computerPick));
+});
+
+paperSelector.addEventListener("click",()=>{
+    let computerPick = getComputerChoice();
+    console.log(round("paper",computerPick))
+});
+
+scissorsSelector.addEventListener("click",()=>{
+    let computerPick = getComputerChoice();
+    console.log(round("scissors",computerPick))
+});
+
+
+
+
+//paperSelector.addEventListener("click",getPlayerChoice("paper"));
+//scissorsSelector.addEventListener("click",getPlayerChoice("scissors"));
+
+
+
+
+
+
+
+
+/*
+let next = getPlayerChoice("rock");
+
+console.log(next);
+*/
