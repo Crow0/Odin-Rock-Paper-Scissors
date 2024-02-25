@@ -54,6 +54,8 @@ function playGame(choice) {
             computerScore = 0;
         }else {
             alert("Thank you for playing");
+            playerScore = 0;
+            computerScore = 0;
         }
     }
 }
