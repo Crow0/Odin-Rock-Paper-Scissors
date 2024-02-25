@@ -15,15 +15,25 @@ function getPlayerChoice(choice) {
 
 function round(playerSelection, computerSelection) {
     if(playerSelection === "rock" && computerSelection === "scissors") {
-        return("Great job you won! Rock beats scissors.");
+        let log ="Great job you won! Rock beats scissors. ";
+        messageSelector.textContent = log;
+        return log
     } else if(playerSelection ==="paper" && computerSelection ==="rock") {
-        return("Great job you won! Paper beats rock.");
+        log = "Great job you won! Paper beats rock. ";
+        messageSelector.textContent = log;
+        return log
     } else if(playerSelection === "scissors" && computerSelection ==="paper") {
-        return("Great job you won! Scissors beat paper. ");
+        log = "Great job you won! Scissors beat paper. ";
+        messageSelector.textContent = log;
+        return log
     } else if(playerSelection === computerSelection) {
-        return("It's a tie!")
+        log = "It's a tie!";
+        messageSelector.textContent = log;
+        return log
     } else {
-        return("Sorry you lost. Try again. ")
+        log = "Sorry you lost. Try again. "
+        messageSelector.textContent = log;
+        return log
     }
 }
 
@@ -56,26 +66,60 @@ function game () {
 
 game();
 */
-let selection;
+function playGame(choice) {
+    let computerPick = getComputerChoice();
+    result = round(choice,computerPick);
+    if (result.includes("Great job you won!"))  {
+        playerScore++;      
+    } else if (result.includes("Sorry you lost.")) {
+        computerScore++;    
+    }   
+    playerScoreSelector.textContent = `Player score: ${playerScore}`;
+    computerScoreSelector.textContent = `Computer score: ${computerScore}`;
+
+    if(playerScore == 5) {
+        let message = confirm("Great job you won. Do you want to play again?");
+        if(message) {
+            playerScore = 0;
+            computerScore = 0;
+        }else {
+            alert("Thank you for playing");
+        }
+    }else if (computerScore == 5) {
+        message = confirm("Sorry you lost. Do you want to play again?");
+        if(message) {
+            playerScore = 0;
+            computerScore = 0;
+        }else {
+            alert("Thank you for playing");
+        }
+    }
+}
+
+
+
+
+
+
+
+//let selection;
+let playerScore = 0;
+let computerScore = 0;
+
 
 const rockSelector = document.querySelector(".rock-button");
 const paperSelector = document.querySelector(".paper-button");
 const scissorsSelector = document.querySelector(".scissors-button");
+const computerScoreSelector = document.querySelector(".computer-score");
+const playerScoreSelector = document.querySelector(".player-score");
+const messageSelector = document.querySelector(".message");
 
-rockSelector.addEventListener("click",()=>{
-    let computerPick = getComputerChoice();
-    console.log(round("rock",computerPick));
-});
+rockSelector.addEventListener("click",()=>playGame("rock"));
 
-paperSelector.addEventListener("click",()=>{
-    let computerPick = getComputerChoice();
-    console.log(round("paper",computerPick))
-});
+paperSelector.addEventListener("click",()=>playGame("paper"));
 
-scissorsSelector.addEventListener("click",()=>{
-    let computerPick = getComputerChoice();
-    console.log(round("scissors",computerPick))
-});
+scissorsSelector.addEventListener("click",()=>playGame("scissors"));
+
 
 
 
@@ -95,3 +139,6 @@ let next = getPlayerChoice("rock");
 
 console.log(next);
 */
+
+
+
