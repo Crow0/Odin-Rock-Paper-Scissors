@@ -1,3 +1,8 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
 .container {
     display: flex;
     justify-content: space-around;
@@ -5,6 +10,37 @@
 
 
 img {
-    width:300px;
+    width:200px;
     height: auto;
+}
+
+.message {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 2px solid orange;
+}
+
+.result-container {
+    display: flex;
+    justify-content: space-between;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+
+.player-score {
+    margin-top: 3em;
+    margin-left: 8em;
+    margin-bottom: 3em;
+    border: 2px solid orange;
+    padding: 5px;
+}
+
+.computer-score {
+   margin-top: 3em;
+   margin-right: 7em;
+   margin-bottom: 3em;
+   border: 2px solid orange;
+   padding: 5px;
 }
